@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Smart Contract Notes Repo: beginner-friendly Solidity notes with examples, quizzes, glossary, and a searchable contract library."
+    />
+    <title>Smart Contract Notes Repo</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23070b10'/%3E%3Cpath d='M18 20h28v24H18z' fill='none' stroke='%233de8d5' stroke-width='4'/%3E%3Cpath d='M25 29h14M25 36h10' stroke='%23f5bd4f' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="chain-canvas" aria-hidden="true"></canvas>
+
+    <header class="topbar">
+      <a class="brand" href="#notes" aria-label="Smart Contract Notes Repo home">
+        <span class="brand-mark" aria-hidden="true">SC</span>
+        <span>
+          <strong>Smart Contract Notes Repo</strong>
+          <small>Solidity, from zero to deploy-ready habits</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#notes">Notes</a>
+        <a href="#examples">Examples</a>
+        <a href="#quiz">Quiz</a>
+        <a href="#repo">Repo Map</a>
+      </nav>
+
+      <div class="toolbar" aria-label="Display controls">
+        <button class="icon-button" id="motionToggle" type="button" data-tip="Pause motion" aria-label="Pause motion">
+          <span class="icon-lines" aria-hidden="true"></span>
+        </button>
+        <button class="icon-button" id="themeToggle" type="button" data-tip="Toggle theme" aria-label="Toggle theme">
+          <span class="icon-moon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="study-console" id="notes">
+        <div class="console-copy reveal">
+          <p class="eyebrow">Beginner-friendly Solidity notes with examples</p>
+          <h1>Learn smart contracts through compact notes, real snippets, and safety checks.</h1>
+          <p class="lead">
+            A guided notes repo for new Solidity developers: core concepts, tiny contracts,
+            security reminders, and examples you can copy into Remix, Hardhat, or Foundry.
+          </p>
+
+          <div class="search-panel" role="search">
+            <label for="searchInput">Search notes and contracts</label>
+            <div class="search-box">
+              <span aria-hidden="true"></span>
+              <input id="searchInput" type="search" placeholder="Try: mapping, event, owner, reentrancy" />
+            </div>
+          </div>
+
+          <div class="metric-row" aria-label="Repository summary">
+            <div>
+              <strong id="lessonCount">0</strong>
+              <span>Lessons</span>
+            </div>
+            <div>
+              <strong id="exampleCount">0</strong>
+              <span>Contracts</span>
+            </div>
+            <div>
+              <strong id="progressCount">0%</strong>
+              <span>Progress</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-wrap reveal">
+          <img
+            src="assets/solidity-contract-lab.png"
+            alt="Futuristic smart contract learning desk with code panels and connected blockchain nodes"
+          />
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="floating-badge badge-a">pragma ^0.8.24</div>
+          <div class="floating-badge badge-b">event Saved(...)</div>
+        </div>
+
+        <div class="notes-workbench reveal visible" aria-label="Solidity notes explorer">
+          <aside class="lesson-list" aria-label="Lesson list">
+            <div class="rail-head">
+              <span>Learning Path</span>
+              <button id="resetProgress" type="button">Reset</button>
+            </div>
+            <div id="lessonList"></div>
+          </aside>
+
+          <article class="lesson-panel" id="lessonPanel" tabindex="-1">
+            <div class="lesson-kicker" id="lessonKicker"></div>
+            <h2 id="lessonTitle"></h2>
+            <p id="lessonSummary"></p>
+            <div class="lesson-body" id="lessonBody"></div>
+            <div class="checklist" id="lessonChecklist"></div>
+            <div class="lesson-actions">
+              <button class="primary-action" id="completeLesson" type="button">
+                <span aria-hidden="true">+</span>
+                Mark Complete
+              </button>
+              <button class="secondary-action" id="prevLesson" type="button">Previous</button>
+              <button class="secondary-action" id="nextLesson" type="button">Next</button>
+            </div>
+          </article>
+
+          <aside class="code-stage" aria-label="Lesson contract example">
+            <div class="code-head">
+              <div>
+                <span id="exampleFile"></span>
+                <strong id="exampleTitle"></strong>
+              </div>
+              <button class="copy-button" id="copyCurrent" type="button" data-tip="Copy code">Copy</button>
+            </div>
+            <pre><code id="exampleCode"></code></pre>
+          </aside>
+        </div>
+      </section>
+
+      <section class="example-library" id="examples">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contract library</p>
+          <h2>Copy-ready beginner examples</h2>
+          <p>
+            Each example focuses on one practical Solidity idea. The matching `.sol`
+            source files are included in the repository folder.
+          </p>
+        </div>
+
+        <div class="filter-strip reveal" aria-label="Example filters">
+          <button class="filter-chip active" type="button" data-filter="all">All</button>
+          <button class="filter-chip" type="button" data-filter="storage">Storage</button>
+          <button class="filter-chip" type="button" data-filter="access">Access</button>
+          <button class="filter-chip" type="button" data-filter="payments">Payments</button>
+          <button class="filter-chip" type="button" data-filter="patterns">Patterns</button>
+        </div>
+
+        <div class="example-grid" id="exampleGrid"></div>
+      </section>
+
+      <section class="quiz-section" id="quiz">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Fast review</p>
+          <h2>Check your Solidity basics</h2>
+          <p>Short prompts reinforce the ideas that matter before you deploy a contract.</p>
+        </div>
+
+        <div class="quiz-layout reveal">
+          <div class="quiz-card">
+            <div class="quiz-topline">
+              <span id="quizStep"></span>
+              <span id="quizScore"></span>
+            </div>
+            <h3 id="quizQuestion"></h3>
+            <div id="quizOptions" class="quiz-options"></div>
+            <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+            <div class="quiz-actions">
+              <button class="secondary-action" id="nextQuestion" type="button">Next Question</button>
+              <button class="secondary-action" id="restartQuiz" type="button">Restart</button>
+            </div>
+          </div>
+
+          <div class="glossary-panel">
+            <div class="panel-head">
+              <span>Glossary</span>
+              <input id="glossarySearch" type="search" placeholder="Filter terms" />
+            </div>
+            <dl id="glossaryList"></dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="repo-section" id="repo">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Repository structure</p>
+          <h2>A clean folder for notes and contracts</h2>
+          <p>
+            The handoff folder includes the static website, Markdown notes, Solidity
+            contracts, and a simple launcher for local preview.
+          </p>
+        </div>
+
+        <div class="repo-grid reveal">
+          <div class="repo-tree" aria-label="Repository tree">
+            <div><span>index.html</span><small>single-page notes interface</small></div>
+            <div><span>styles.css</span><small>responsive UI, motion, themes</small></div>
+            <div><span>app.js</span><small>search, progress, quiz, canvas animation</small></div>
+            <div><span>notes/</span><small>beginner Solidity Markdown notes</small></div>
+            <div><span>contracts/</span><small>copy-ready Solidity examples</small></div>
+            <div><span>assets/</span><small>project-local hero visual</small></div>
+          </div>
+
+          <div class="principles">
+            <h3>Repo learning rules</h3>
+            <ul>
+              <li>Keep contracts tiny until each line is explainable.</li>
+              <li>Emit events for important state changes.</li>
+              <li>Use custom errors when a revert should carry meaning.</li>
+              <li>Prefer checks before effects before external interactions.</li>
+              <li>Never treat example code as audited production code.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Smart Contract Notes Repo</span>
+      <a href="#notes">Back to notes</a>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

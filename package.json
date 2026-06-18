@@ -1,0 +1,19 @@
+{
+  "name": "smart-contract-notes-repo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Beginner-friendly Solidity notes website with examples, motion, search, progress, quiz, and repo handoff files.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "check": "node --check app.js && node --check server.mjs"
+  },
+  "keywords": [
+    "solidity",
+    "smart-contracts",
+    "notes",
+    "beginner",
+    "ui"
+  ],
+  "license": "MIT"
+}
