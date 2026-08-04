@@ -1,3 +1,5 @@
+#using the 1.0.0 , if the condition make the private true and false let tge website show the property 
+
 {
   "name": "smart-contract-notes-repo",
   "version": "1.0.0",
