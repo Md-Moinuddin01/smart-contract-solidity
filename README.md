@@ -1,22 +1,7 @@
 # Smart Contract Notes Repo
 
 Beginner-friendly Solidity notes with examples, wrapped in a polished local website with motion, search, progress tracking, a quiz, a glossary, and copy-ready contracts.
-
-## Open the Website
-
-Option 1: double-click `index.html`.
-
-Option 2: run the local server:
-
-```powershell
-npm start
-```
-
-Then open:
-
-```text
-http://localhost:4179
-```
+<img width="1438" height="913" alt="smart sol" src="https://github.com/user-attachments/assets/6757d089-0b80-40a8-94ef-049c126d5a82" />
 
 On Windows, `start.bat` also starts the local server and uses `pushd` so it works better from a UNC/Desktop folder.
 
